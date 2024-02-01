@@ -5,3 +5,11 @@
   tasks:
     - name: display hello world
       shell: echo "hello world"
+
+    - name: display date
+      command: date
+
+    - name: list files
+      command: ls -lart
+      args:
+        chdir: /etc/ansible
