@@ -1,6 +1,11 @@
 ---
 - name: hello world
   hosts: localhost
+  vars:
+    car_model: 'BMW M3'
+    country_name: USA
+    title: 'Systems Engineer'
+
 
   tasks:
     - name: display hello world
@@ -18,3 +23,13 @@
       lineinfile:
         path: /root/test.txt
         line: 'server 192.168.0.46'
+
+    - name: Car model
+      command: 'echo " My car model is {{car_model}}"'
+
+    - name: Country Name
+      command: 'echo " My country is {{country_name}}"'
+
+    - name: Job title
+      command: 'echo " My job is {{title}}"'
+
