@@ -1,5 +1,5 @@
 vars:
   car_model: 'BMW M3'
-  country_name: USA
+  country_name: 'USA'
   title: 'Systems Engineer'
   dns_server: '192.168.0.29'

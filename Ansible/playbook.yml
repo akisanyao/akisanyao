@@ -25,7 +25,7 @@
     - name: Add Ip to dns
       lineinfile:
         path: /etc/resolv.conf
-        line: 'nameserver {{ dns_server }}'
+        line: nameserver {{ dns_server }}
 
 
     - name: Car model
