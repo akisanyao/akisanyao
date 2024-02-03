@@ -1,13 +1,13 @@
 ---
-name: playbook2
-hosts: localhost
+- name: playbook2
+  hosts: localhost
 
-tasks:
-  - name: run command
-    command: echo "hi"
+  tasks:
+    - name: run command
+      command: echo "hi"
 
 
 
-  - name: run task on basis of previous successful run
-    command: echo "success"
+    - name: run task on basis of previous successful run
+      command: echo "success"
 
