@@ -1,14 +1,11 @@
 ---
 - name: hello world
   hosts: localhost
-  vars:
-    car_model: 'BMW M3'
-    country_name: USA
-    title: 'Systems Engineer'
-    dns_server: 192.168.0.29
+
 
 
   tasks:
+    - include_vars: vars.yml
     - name: display hello world
       shell: echo "hello world"
 
