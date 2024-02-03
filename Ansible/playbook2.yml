@@ -5,9 +5,11 @@
   tasks:
     - name: run command
       command: echo "hi"
+      register: contents
 
 
 
     - name: run task on basis of previous successful run
       command: echo "success"
+      when: contents.stdout.find('hello')!=-1
 
