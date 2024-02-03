@@ -19,7 +19,7 @@
       command: echo "success"
       when: contents.changed == 'true'
 
-    - name: create username
+    - name: create "{{ items }}"
       user: name='{{ items }}' state=present
       loop:
         - gunjan
