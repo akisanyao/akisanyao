@@ -5,6 +5,7 @@
     car_model: 'BMW M3'
     country_name: USA
     title: 'Systems Engineer'
+    dns_server: 192.168.0.29
 
 
   tasks:
@@ -23,6 +24,12 @@
       lineinfile:
         path: /root/test.txt
         line: 'server 192.168.0.46'
+
+    - name: Add Ip to dns
+      lineinfile:
+        path: /etc/resolv.conf
+        line: 'nameserver {{ dns_server }}'
+
 
     - name: Car model
       command: 'echo " My car model is {{car_model}}"'
