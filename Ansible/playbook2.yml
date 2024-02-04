@@ -27,7 +27,7 @@
       when: contents.changed == 'true'
 
 
-    - name: create "{{ items }} "
+    - name: create user name
       user: name="{{ items }}"
       with_items: '{{ usernames }}'
 
