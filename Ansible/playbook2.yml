@@ -28,6 +28,6 @@
 
 
     - name: create user name
-      user: name="{{ items }}"
+      user: 'name="{{ items }}"'
       with_items: '{{ usernames }}'
 
