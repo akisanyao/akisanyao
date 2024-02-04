@@ -1,6 +1,13 @@
 ---
 - name: playbook2
   hosts: localhost
+  vars:
+    usernames:
+      - gunjan
+      - olanike
+      - Adebimpe
+      - Abayomi
+
 
   tasks:
     - name: run command
@@ -22,8 +29,5 @@
 
     - name: create "{{ items }} "
       user: name="{{ items }}"
-      loop:
-        - gunjan
-        - olanike
-        - adebimpe
-        - Abayomi
+      with_items: '{{ usernames }}'
+
