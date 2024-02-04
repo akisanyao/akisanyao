@@ -27,7 +27,10 @@
       when: contents.changed == 'true'
 
 
-    - name: create user name
-      user: 'name="{{ items }}"'
+    - name: echo usernames
+      command: 'echo "{{ items }}"'
       with_items: '{{ usernames }}'
+
+
+
 
