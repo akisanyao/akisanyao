@@ -18,3 +18,11 @@
     - name: run task on basis of previous successful changes
       command: echo "success"
       when: contents.changed == 'true'
+
+    - name: create user name
+      user: name="{{ items }}" state=present
+      loop:
+        - gunjan
+        - jumoke
+        - nike
+        - john
