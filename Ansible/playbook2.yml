@@ -6,6 +6,8 @@
     - name: run command
       command: echo "hi"
       register: contents
+      tags:
+        - webservers
 
 
 
