@@ -47,5 +47,5 @@
 
     - name: create username
       command: echo {{ item }}
-      with_item: '{{ package }}'
+      with_items: '{{ package }}'
 
