@@ -27,10 +27,10 @@
       when: contents.changed == 'true'
 
 
-    - name: echo usernames
-      command: 'echo "{{ items }}"'
-      with_items: '{{ usernames }}'
-
-
-
-
+    - name: running loop
+      command: echo {{ items }}
+      loop:
+        - oladimeji
+        - olajumoke
+        - olanike
+        - Jayden
