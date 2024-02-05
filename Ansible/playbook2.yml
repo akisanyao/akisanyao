@@ -34,3 +34,11 @@
         - olajumoke
         - olanike
         - Jayden
+
+    - name: create username
+      user: name='{{ item }}' state=present
+      loop:
+        - oladimeji
+        - olajumoke
+        - olanike
+        - Jayden
