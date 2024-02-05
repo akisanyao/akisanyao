@@ -46,6 +46,6 @@
 
 
     - name: create username
-      command: echo'{{ item }}'
+      command: echo {{ item }}
       loop: '{{ package }}'
 
