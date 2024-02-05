@@ -49,3 +49,8 @@
       command: echo {{ item }}
       with_items: '{{ package }}'
 
+    - name: install '{{ item.name }}'
+      command: echo installing '{{ item.name }}'  '{{ item.required }}'
+      when: item.required==true
+      loop: "{{ packages }}"
+

@@ -9,3 +9,12 @@ package:
   - hans
   - patrick
   - ibt
+
+packages:
+  - name: python
+    required: true
+  - name: nginix
+    required: false
+  - name: apache
+    required: true
+
