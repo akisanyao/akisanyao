@@ -28,7 +28,7 @@
 
 
     - name: running loop
-      command: echo {{ items }}
+      command: echo {{ item }}
       loop:
         - oladimeji
         - olajumoke
