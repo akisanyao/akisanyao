@@ -1,21 +1,20 @@
 ---
-name: Install and configure tomcat server for deployment
-hosts: webservers
-remote_user: root
+- name: Install and configure tomcat server for deployment
+  hosts: nodes
+  remote_user: root
 
-vars:
+  vars:
   tomcat_user: tomcat
   tomcat_path: /opt/tomcat
 
-tasks:
+  tasks:
   - name: Update system package
-    yum:
-      name: '*'
-      state: latest
+    apt:
+      upgrade: yes
       update_cache: yes
 
   - name: Install Java
-    yum:
+    apt:
       name: openjdk-11-jdk
       state: present
 
@@ -61,7 +60,7 @@ tasks:
     notify:
       - Echo connection
 
-handlers:
+  handlers:
   - name: Echo connection
     command: echo "success"
 
