@@ -1,5 +1,6 @@
 ---
-  name: Install and configure tomcat server for deployment
+
+- name: Install and configure tomcat server for deployment
   hosts: webservers
   remote_user: root
 
