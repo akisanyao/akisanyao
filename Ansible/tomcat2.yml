@@ -11,7 +11,8 @@
   tasks:
     - name: update system package
       yum:
-        upgrade: yes
+        upgrade: '*'
+        state: latest
         update_cache: yes
 
     - name: install Java
