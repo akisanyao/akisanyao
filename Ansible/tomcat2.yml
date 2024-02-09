@@ -1,36 +1,36 @@
 ---
-- name: Install and configure tomcat server for deployment
-  hosts: nodes
+  name: Install and configure tomcat server for deployment
+  hosts: webservers
   remote_user: root
 
   vars:
-  tomcat_user: tomcat
-  tomcat_path: /opt/tomcat
+    tomcat_user: tomcat
+    tomcat_path: /opt/tomcat
 
   tasks:
-    - name: Update system package
-      apt:
+    - name: update system package
+      yum:
         upgrade: yes
         update_cache: yes
 
-    - name: Install Java
-      apt:
+    - name: install Java
+      yum:
         name: openjdk-11-jdk
         state: present
 
-    - name: Create Tomcat User
+    - name: create Tomcat user
       user:
-        name: '{{ tomcat_user }}'
+        name: '{{ tomcat_user}}'
 
-    - name: Create Tomcat Group
+    - name: create Tomcat group
       group:
         name: '{{ tomcat_user }}'
 
-    - name: Create tomcat directory
+    - name: create tomcat directory
       file:
-        path: '{{ tomcat_path }}'
+        path: '{{ tomcat_path}}'
         owner: '{{ tomcat_user }}'
-        group: '{{ tomcat_user }}'
+        group: '{{ tomcat_user}}'
         mode: 755
         recurse: yes
 
@@ -39,7 +39,7 @@
         src: https://downloads.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz
         dest: '{{ tomcat_path }}'
         remote_src: yes
-        extra_opts: [--strip-components=1]
+        extra_opts: [ --strip-components=1 ]
 
     - name: Start tomcat server
       command: nohup {{ tomcat_path }}/bin/startup.sh
@@ -62,6 +62,3 @@
 
       handlers:
     - name: Echo connection
-      command: echo "success"
-
-
