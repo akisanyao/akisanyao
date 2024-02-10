@@ -47,8 +47,10 @@
     - name: Start tomcat server
       command: nohup {{ tomcat_path }}/bin/startup.sh
 
-    - name: allow tcp connections
-      command: sudo ufw allow 8080/tcp
+    - firewalld:
+        port: 8080/tcp
+        permanent: yes
+        state: enabled
 
     - name: connect to tomcat on port 8080
       tags:
